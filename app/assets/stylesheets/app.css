@@ -1,0 +1,9 @@
+.Items-container {
+    display: flex;
+    margin: 5px;
+    
+}
+.Items-content {
+    padding: 10px;
+    margin: 5px;
+}

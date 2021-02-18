@@ -1,0 +1,26 @@
+<section>
+    <%= form_with(url: "/menus" , method: "post") do %> 
+    <input type="text" value="Name" name="name">
+    
+    <input type="submit" value="Create" onclick="this.form.submit()">
+    <% end %>
+</section>
+
+<section>
+    <% Menu.all.each do |item|%>
+    <li>
+    <div class="Items-container">
+    <div class="Items-content"><%= form_with(url: "menus/#{item.id}/menu_items" , method: "get") do %>
+            <input type="submit" value="<%= item.name%>" onclick="this.form.submit()">
+    
+        <% end %>
+    </div>
+    <div class="Items-content"><%= form_with(url: "menus/#{item.id}" , method: "delete") do %>
+            <input type="submit" value="Delete" onclick="this.form.submit()">
+    
+        <% end %>
+    </div>
+    </div>
+    </li>
+    <% end %>
+</section>

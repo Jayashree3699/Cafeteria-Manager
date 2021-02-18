@@ -1,0 +1,11 @@
+<h3>Edit Items</h3>
+<section>
+<%= form_with(url: "/menus/#{params[:menu_id]}/menu_items/#{params[:id]}" , method: "put") do %> 
+    <% item = MenuItem.find_by(id: params[:id])%>
+    <input type="text" value="<%= item.name%>" name="name">
+    <input type="text" value="<%= item.description%>" name="description">
+    <input type="number" value="<%= item.price%>" name="price" >
+    <input type="submit" value="update" onclick="this.form.submit()">
+    
+<% end %>
+</section>
