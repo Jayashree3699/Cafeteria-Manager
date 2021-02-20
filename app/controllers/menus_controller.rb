@@ -1,7 +1,7 @@
 class MenusController < ApplicationController 
     protect_from_forgery except: :index
     def index
-        render "owner_view"
+        render "customer_view"
     end    
     def create
         menu = Menu.create!(name: params[:name])
