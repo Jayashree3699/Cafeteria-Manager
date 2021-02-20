@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_18_183052) do
+ActiveRecord::Schema.define(version: 2021_02_20_054407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cart_items", force: :cascade do |t|
+    t.bigint "cart_id"
+    t.integer "menu_id"
+    t.bigint "menu_item_id"
+    t.string "menu_item_name"
+    t.decimal "menu_item_price"
+    t.integer "menu_item_quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "menu_items", force: :cascade do |t|
     t.integer "menu_id"
@@ -37,6 +54,7 @@ ActiveRecord::Schema.define(version: 2021_02_18_183052) do
     t.decimal "menu_item_price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "quantity"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -44,6 +62,7 @@ ActiveRecord::Schema.define(version: 2021_02_18_183052) do
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "delivered"
   end
 
   create_table "users", force: :cascade do |t|
