@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  get "/" => "home#index"
+
+  get "/signin" => "sessions#new" , as: :new_sessions
+  post "/signin" => "sessions#create" , as: :sessions
   resources :users
-  
+
   resources :menus do
     resources :menu_items
   end  
