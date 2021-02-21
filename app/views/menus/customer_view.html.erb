@@ -1,11 +1,11 @@
 <%= javascript_pack_tag 'my_function' %>
 <h1>Customer view available menus</h1>
-<% cart = Cart.find_or_create_by(user_id: 1)%>
+<% @current_cart %>
 <section>
 <% MenuItem.all.each do |item|%>
 
     <li class="Items-container">
-    <%= form_with(url: "/carts/#{cart.id}/cart_items" , method: "post") do %> 
+    <%= form_with(url: "/carts/#{@current_cart.id}/cart_items" , method: "post") do %> 
         <div class="Items-content"> 
             <input type="text" name="menu_item_name" value="<%= item.name%>" readonly>
         </div>
@@ -32,7 +32,7 @@
 </section>
 <h1>Cart Items</h1>
 <section>
-    <% CartItem.where(cart_id: cart.id).each do |cart_item| %>
+    <% CartItem.where(cart_id: @current_cart.id).each do |cart_item| %>
        <%= cart_item.menu_item_name%>
        <%= (cart_item.menu_item_price)*cart_item.menu_item_quantity%>
     <% end %>

@@ -1,7 +1,11 @@
 class MenusController < ApplicationController 
     protect_from_forgery except: :index
     def index
-        render "customer_view"
+        if current_user
+            render "customer_view"
+        else    
+            redirect_to "/"
+        end    
     end    
     def create
         menu = Menu.create!(name: params[:name])

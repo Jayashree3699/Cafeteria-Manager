@@ -1,5 +1,5 @@
 class UsersController < ApplicationController 
-
+    skip_before_action :ensure_logged_in
     def new
         render "new"
     end    
