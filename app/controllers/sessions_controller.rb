@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
             
             cart = Cart.find_or_create_by(user_id: user.id)
             session[:current_cart_id] = cart.id
-            redirect_to menus_path
+            redirect_to customers_path
             
         else
             redirect_to "/"
