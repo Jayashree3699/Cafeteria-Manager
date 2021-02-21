@@ -11,6 +11,10 @@
   </head>
 
   <body>
+    <% if @current_user && @current_cart %>
+      <p>welcome <%= @current_user.name%></p>
+      <%= link_to "Sign-out", destroy_session_path ,method:"delete"%>
+    <% end %>
     <%= yield %>
   </body>
 </html>
