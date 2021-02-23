@@ -1,7 +1,7 @@
 class CartItemsController < ApplicationController
     def create
-        cart_item = CartItem.where("cart_id = ? and menu_item_id = ?", params[:cart_id], params[:menu_item_id])
-        if !cart_item
+        cart_item = CartItem.exists?(:cart_id => params[:cart_id] , :menu_item_id => params[:menu_item_id])
+        if !cart_item 
             CartItem.create!(
                 cart_id: params[:cart_id],
                 menu_id: params[:menu_id],
