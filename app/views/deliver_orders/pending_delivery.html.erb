@@ -1,0 +1,8 @@
+<h1>Pending delivery</h1>
+<% @not_delivered.each do |order|%>
+    <li> <%= order.id%> 
+        <%= form_with(url: "deliver_orders/#{order.id}" , method: "patch") do %>
+            <input type="submit" value="Delivered" onclick="this.form.submit()">
+        <% end %>
+    </li>
+<%end%>

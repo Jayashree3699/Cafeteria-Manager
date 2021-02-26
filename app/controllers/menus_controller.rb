@@ -1,14 +1,14 @@
 class MenusController < ApplicationController 
+    skip_before_action :ensure_logged_in
     protect_from_forgery except: :index
     def index
-        if current_user
-            render "customer_view"
-        else    
-            redirect_to "/"
-        end    
+        
+            render "owner_view"
+           
+           
     end    
     def create
-        menu = Menu.create!(name: params[:name])
+        menu = Menu.create!(name: params[:name],enabled: false)
 
         redirect_to "/menus/#{menu.id}/menu_items"
          
@@ -21,6 +21,14 @@ class MenusController < ApplicationController
         end    
         menu.destroy
         redirect_to menus_path
-    end    
+    end 
+    def update
+        id = params[:id]
+        enabled = params[:enabled]
+        menu = Menu.find(id)
+        menu.enabled = enabled
+        menu.save
+        redirect_to menus_path
+    end       
 
 end    

@@ -4,7 +4,7 @@ class PlaceOrdersController < ApplicationController
     end
 
     def create
-        @order = Order.create!(date: Date.today, user_id: @current_user.id,)
+        @order = Order.create!(date: Date.today, user_id: @current_user.id, order_delivered: false)
         cart = Cart.find_by(user_id: @current_user.id)
         CartItem.where(cart_id: @current_cart.id).each do |cart_item|
             OrderItem.create!(

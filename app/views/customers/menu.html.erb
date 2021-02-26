@@ -1,8 +1,10 @@
 <%= javascript_pack_tag 'my_function' %>
-<h1>Customer view available menus</h1>
+<div class="Items-main">
+
 <% @current_cart %>
 <section>
-<% MenuItem.all.each do |item|%>
+<h1>Customer view - Available menus</h1>
+<% @items.each do |item|%>
 
     <li class="Items-container">
     <%= form_with(url: "/carts/#{@current_cart.id}/cart_items" , method: "post") do %> 
@@ -19,9 +21,8 @@
     </li>    
 <% end %>
 </section>
-<h1>Cart Items</h1>
-<section>
-    
+<section class="Cart-main">
+    <h1>Cart Items</h1>
     <% CartItem.where(cart_id: @current_cart.id).each do |cart_item| %>
     <li class="Items-container">
     <div class="Items-content">
@@ -41,3 +42,4 @@
     <%= button_to "Place Order", place_orders_path , :confirm => "Are you sure?", :controller=>"place_orders", :method => "post" %>
    
 </section>
+</div>

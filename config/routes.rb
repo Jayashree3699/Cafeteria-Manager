@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   post "/signin" => "sessions#create" , as: :sessions
   delete "/signout" => "sessions#destroy" , as: :destroy_session
   
+  get "/owner" => "owner#index" , as: :owner
   resources :place_orders
   resources :customers
   resources :users
-
+  resources :deliver_orders
   resources :menus do
     resources :menu_items
   end  

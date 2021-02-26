@@ -13,3 +13,13 @@
     margin: 5px;
     display: none;
 }
+.Items-main{
+    display: flex;
+    font-family: sans-serif;
+    
+    
+    
+}
+.Cart-main{
+    padding-left: 50px;
+}
