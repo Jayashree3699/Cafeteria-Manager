@@ -1,0 +1,5 @@
+<div>
+    <%= render partial: "user_section", locals: {section_title: "Customers", users: User.customers}%>
+    <%= render partial: "user_section", locals: {section_title: "Clerks", users: User.clerks}%>
+    <%= render partial: "user_section", locals: {section_title: "Owners", users: User.owners}%>
+</div>

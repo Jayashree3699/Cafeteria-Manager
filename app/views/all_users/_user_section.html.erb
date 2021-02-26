@@ -1,0 +1,10 @@
+<div>
+    <p><%= section_title%></p>
+    <div>
+    <% users.all.each do |user|%>
+        <li><%= user.name%>
+            <%= user.email%>
+        </li>
+    <% end %>
+    </div>
+</div>

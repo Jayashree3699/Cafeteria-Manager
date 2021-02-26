@@ -1,0 +1,11 @@
+<div>
+    <p>Current Clerks</p>
+    <% @clerks.all.each do |clerk|%>
+        <li>
+            <%= link_to "#{clerk.name}   #{clerk.email}" , manage_clerk_path(:id => clerk.id) , :method => :put %>
+        </li>
+    <% end %>
+</div>
+<div>
+    <%= link_to "Add new clerk" , new_manage_clerk_path %>
+</div>
