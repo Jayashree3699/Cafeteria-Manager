@@ -1,4 +1,5 @@
 class CartItemsController < ApplicationController
+    before_action :ensure_cart_created , :ensure_is_clerk_or_customer
     def create
         cart_item = CartItem.exists?(:cart_id => params[:cart_id] , :menu_item_id => params[:menu_item_id])
         if !cart_item 

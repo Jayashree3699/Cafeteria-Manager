@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   post "/signin" => "sessions#create" , as: :sessions
   delete "/signout" => "sessions#destroy" , as: :destroy_session
 
+  get "/owner_signin" => "owner_session#index" , as: :new_owner_session
+  post "/owner_signin" => "owner_session#create" , as: :owner_session
+  
+  
   get "/clerk_home" => "clerks#index" , as: :clerk_home
 
   get "/owner" => "owner#index" , as: :owner

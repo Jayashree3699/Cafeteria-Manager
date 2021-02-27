@@ -1,5 +1,5 @@
 class MenuItemsController < ApplicationController 
-    skip_before_action :ensure_logged_in
+    before_action :ensure_is_owner
     def index
         render "owner_view_items"
     end    

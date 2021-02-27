@@ -1,6 +1,5 @@
 class MenusController < ApplicationController 
-    skip_before_action :ensure_logged_in
-    protect_from_forgery except: :index
+    before_action :ensure_is_owner
     def index
         
             render "owner_view"

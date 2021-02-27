@@ -1,4 +1,5 @@
 class PlaceOrdersController < ApplicationController
+    before_action :ensure_cart_created , :ensure_is_clerk_or_customer
     def index
         render "order_placed"
     end
@@ -16,7 +17,7 @@ class PlaceOrdersController < ApplicationController
             )
             cart_item.destroy
         end 
-        cart.destroy
+        
         render "order_placed"
     end  
 

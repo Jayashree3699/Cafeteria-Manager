@@ -1,9 +1,9 @@
 class DeliverOrdersController < ApplicationController
-    protect_from_forgery except: :index
-    skip_before_action :ensure_logged_in
+    
+    before_action :ensure_is_clerk_or_owner
     
     def index
-        @not_delivered = Order.joins(:user).where(orders: {order_delivered: false}).order("id ASC")
+        @not_delivered = Order.joins(:user).where(orders: {order_delivered: false})
         render "pending_delivery"
     end    
     

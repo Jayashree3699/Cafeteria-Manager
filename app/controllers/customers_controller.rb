@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-    
+    before_action :ensure_cart_created , :ensure_is_clerk_or_customer
     def index
         menus = Menu.where(enabled: true)
         @items = Array.new
