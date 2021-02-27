@@ -1,0 +1,15 @@
+<h3>Edit Items</h3>
+<section>
+
+<%= form_with(url: "/manage_clerks/#{@clerk.id}"  , method: "put") do %> 
+   
+    <input type="text" value="<%= @clerk.name%>" name="name">
+    <input type="text" value="<%= @clerk.email%>" name="email">
+    
+    <input type="submit" value="update" onclick="this.form.submit()">
+    
+<% end %>
+
+<%= link_to "Delete" , manage_clerk_path(:id => @clerk.id) , :method => :delete %>
+
+</section>

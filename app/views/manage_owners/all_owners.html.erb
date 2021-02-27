@@ -1,0 +1,11 @@
+<div>
+    <p>Current Owners</p>
+    <% @owners.all.each do |owner|%>
+        <li>
+            <%= link_to "#{owner.name}   #{owner.email}" , edit_manage_owner_path(:id => owner.id) , :method => :get %>
+        </li>
+    <% end %>
+</div>
+<div>
+    <%= link_to "Add new owner" , new_manage_owner_path %>
+</div>

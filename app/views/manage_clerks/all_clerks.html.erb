@@ -2,7 +2,7 @@
     <p>Current Clerks</p>
     <% @clerks.all.each do |clerk|%>
         <li>
-            <%= link_to "#{clerk.name}   #{clerk.email}" , manage_clerk_path(:id => clerk.id) , :method => :put %>
+            <%= link_to "#{clerk.name}   #{clerk.email}" , edit_manage_clerk_path(:id => clerk.id) , :method => :get %>
         </li>
     <% end %>
 </div>

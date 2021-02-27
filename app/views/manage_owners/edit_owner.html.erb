@@ -1,0 +1,15 @@
+<h3>Edit Owner</h3>
+<section>
+
+<%= form_with(url: "/manage_owners/#{@owner.id}"  , method: "put") do %> 
+   
+    <input type="text" value="<%= @owner.name%>" name="name">
+    <input type="text" value="<%= @owner.email%>" name="email">
+    
+    <input type="submit" value="update" onclick="this.form.submit()">
+    
+<% end %>
+
+<%= link_to "Delete" , manage_owner_path(:id => @owner.id) , :method => :delete %>
+
+</section>
