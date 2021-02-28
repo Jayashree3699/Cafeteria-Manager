@@ -1,7 +1,7 @@
 <h1>Pending delivery</h1>
 <% @not_delivered.each do |order|%>
-    <li> <%= order.id%> 
-        <%= form_with(url: "deliver_orders/#{order.id}" , method: "patch") do %>
+    <li> <%= order[0]%> 
+        <%= form_with(url: "deliver_orders/#{order[2]}" , method: "patch") do %>
             <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
             <input type="submit" value="Delivered" onclick="this.form.submit()">
         <% end %>

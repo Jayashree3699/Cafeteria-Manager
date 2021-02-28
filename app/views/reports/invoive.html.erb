@@ -1,0 +1,22 @@
+<p><%= @user.name%></p>
+<p><%= @user.email%></p>
+<p><%= @order.id%></p>
+<p><%= @order.date%></p>
+<p><%= @order.order_delivered%></p>
+<table>
+<tr>
+    <th>Item Name</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Sub-Total</th>
+</tr>
+<% @order_items.all.each do |item|%>
+<tr>
+    <td><%= item.menu_item_name%></td>
+    <td><%= item.menu_item_price%></td>
+    <td><%= item.quantity%></td>
+    <td><%= (item.menu_item_price).to_f*(item.quantity).to_f%></td>
+</tr>
+<% end%>
+</table>
+<p>Order Total : <%= @total%></p>

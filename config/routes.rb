@@ -15,12 +15,16 @@ Rails.application.routes.draw do
   get "/all_users" => "all_users#index" , as: :all_users
   get "/manage_all_users" => "manage_all_users#index" , as: :manage_all_users
 
+  get "/reports_filter" => "reports#filter" , as: :reports_filter
+
+
   resources :manage_clerks
   resources :manage_owners
   resources :place_orders
   resources :customers
   resources :users
   resources :deliver_orders
+  resources :reports
   resources :menus do
     resources :menu_items
   end  

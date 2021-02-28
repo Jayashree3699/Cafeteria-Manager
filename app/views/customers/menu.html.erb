@@ -39,7 +39,7 @@
     </li>
     <% end %>
     Cart Total = <%= @total%><br>
-    <%= button_to "Place Order", place_orders_path , :confirm => "Are you sure?", :controller=>"place_orders", :method => "post" %>
+    <%= button_to "Place Order", place_orders_path ,  :controller=>"place_orders", :method => "get" %>
    
 </section>
 </div>

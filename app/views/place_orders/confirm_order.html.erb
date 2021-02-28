@@ -1,0 +1,19 @@
+
+
+<section class="Cart-main">
+    <h1>Cart Items</h1>
+    <% CartItem.where(cart_id: @current_cart.id).each do |cart_item| %>
+    <li class="Items-container">
+    <div class="Items-content">
+       <%= cart_item.menu_item_name%>
+       <%= (cart_item.menu_item_price)*cart_item.menu_item_quantity%>
+     
+    <%= cart_item.menu_item_quantity%>
+    
+    </div>
+    </li>
+    <% end %>
+    Cart Total = <%= @total%><br>
+    <%= button_to "Place Order", place_orders_path , :confirm => "Are you sure?", :controller=>"place_orders", :method => "post" %>
+   
+</section>

@@ -1,0 +1,10 @@
+<div>
+    <%= form_with url: reports_path do |form|%>
+        <p>From Date:</p>
+        <%= form.date_field :from_date %>
+        <p>To Date:</p>
+        <%= form.date_field :to_date %><br>
+        <%= form.submit "Search" %>
+
+    <% end %>
+</div>
