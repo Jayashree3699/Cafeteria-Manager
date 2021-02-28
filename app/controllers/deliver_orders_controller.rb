@@ -3,8 +3,8 @@ class DeliverOrdersController < ApplicationController
     before_action :ensure_is_clerk_or_owner
     
     def index
-        not_delivered = Order.joins(:user).select("users.name as user_name, users.email as user_email, orders.id as order_id").where(orders: {order_delivered: false})
-        @not_delivered = not_delivered.collect{|n| [n.user_name , n.user_email , n.order_id]}
+        #not_delivered = Order.joins(:user).select("users.name as user_name, users.email as user_email, orders.id as order_id").where(orders: {order_delivered: false})
+        @not_delivered = Order.not_delivered #.collect{|n| [n.user_name , n.user_email , n.order_id]}
         render "pending_delivery"
     end    
     

@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
             end    
             
         else
+            flash[:error] = "Invalid Credentials. Please Try Again"
             redirect_to "/"
         end    
     end  

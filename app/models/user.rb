@@ -3,6 +3,10 @@ class User < ApplicationRecord
 
     has_many :orders
 
+    validates :name, :role, :email, :password, presence: true
+    validates :name, length: { minimum: 4 }
+    validates :password, length: { in: 6..20 }
+
     def self.owners
         User.where(role: "owner")
     end  

@@ -15,6 +15,12 @@
       <p>welcome <%= @current_user.name%></p>
       <%= link_to "Sign-out", destroy_session_path ,method:"delete"%>
     <% end %>
+    <% if flash[:error]%>
+    <p class="Flash-error"> <%= flash[:error]%> </p>
+    <%end%> 
+    <% if flash[:success]%>
+    <p class="Flash-success"> <%= flash[:success]%> </p>
+    <%end%>
     <%= yield %>
   </body>
 </html>

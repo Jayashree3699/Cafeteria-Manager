@@ -1,9 +1,9 @@
 class CartItemsController < ApplicationController
     before_action :ensure_cart_created , :ensure_is_clerk_or_customer
     def create
-        cart_item = CartItem.exists?(:cart_id => params[:cart_id] , :menu_item_id => params[:menu_item_id])
-        if !cart_item 
-            CartItem.create!(
+        cart_item = CartItem.item_exists?(params[:cart_id] , params[:menu_item_id])
+        if !cart_item && (Cart.cart_checked(params[:cart_id] , current_cart.id))
+            cart_item = CartItem.new(
                 cart_id: params[:cart_id],
                 menu_id: params[:menu_id],
                 menu_item_id: params[:menu_item_id],
@@ -11,6 +11,11 @@ class CartItemsController < ApplicationController
                 menu_item_price: params[:menu_item_price],
                 menu_item_quantity: 1
             )
+            if cart_item.save
+                flash[:success] = "Added to cart"
+            else  
+                flash[:error] = "Some error occured.Try again" 
+            end    
         end    
         redirect_to customers_path
     end    
@@ -18,7 +23,8 @@ class CartItemsController < ApplicationController
     def update 
         action = params[:change]
         id = params[:id]
-        cart_item = CartItem.find(id)
+        cart_id = params[:cart_id]
+        cart_item = CartItem.retrieve_current_cart_items(cart_id , current_cart.id).find(id)
         if action == "+"
             cart_item.menu_item_quantity +=1
         elsif  action == "-"

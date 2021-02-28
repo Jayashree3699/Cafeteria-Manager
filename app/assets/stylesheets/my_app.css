@@ -1,0 +1,48 @@
+body{
+    font-family: sans-serif;
+    
+    background-color: rgb(240, 227, 233);
+}
+.Flash-error{
+    color:whitesmoke;
+    background-color: darkred;
+    margin: auto;
+    width: 600px;
+    font-size: small;
+    text-align: center;
+}
+.Flash-success{
+    color:rgb(248, 241, 241);
+    background-color: rgb(52, 129, 7);
+    margin: auto;
+    width: 600px;
+    font-size: small;
+    text-align: center;
+}
+.Main-box{
+   
+    margin: auto;
+    width: 50%;
+    
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 10px;
+    background-color: rgb(250, 244, 247);
+    color:rgb(51, 54, 54)
+    
+}
+.Content-heading{
+    text-align: center;
+    background-color: rgb(238, 138, 24);
+}
+.Content{
+    text-align: center;
+}
+.Content-link{
+    text-align: center;
+    background-color: rgb(58, 192, 4);
+    color: rgb(238, 221, 221);
+    margin: auto;
+    width:200px;
+    border-radius: 25px;
+}
