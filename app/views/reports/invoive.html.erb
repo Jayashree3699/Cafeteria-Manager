@@ -1,22 +1,38 @@
-<p><%= @user.name%></p>
-<p><%= @user.email%></p>
-<p><%= @order.id%></p>
-<p><%= @order.date%></p>
-<p><%= @order.order_delivered%></p>
+<section class="Main-box Shadow"> 
+<h3 class="Hilight">Invoice</h3>
 <table>
 <tr>
-    <th>Item Name</th>
-    <th>Price</th>
-    <th>Quantity</th>
-    <th>Sub-Total</th>
+    <th class="Table-item">Name</th>
+    <th class="Table-item">Email</th>
+    <th class="Table-item">Order ID</th>
+    <th class="Table-item">Order Date</th>
+    <th class="Table-item">Delivered</th>
+</tr>
+<tr><td class="Table-item"><%= @user.name%></td>
+<td class="Table-item"><%= @user.email%></td>
+<td class="Table-item"><%= @order.id%></td>
+<td class="Table-item"><%= @order.date%></td>
+<td class="Table-item"><%= @order.order_delivered%></td>
+</tr>
+</table>
+</section>
+<section class="Main-box Shadow">
+<h3></h3>
+<table>
+<tr>
+    <th class="Table-item">Item Name</th>
+    <th class="Table-item">Price</th>
+    <th class="Table-item">Quantity</th>
+    <th class="Table-item">Sub-Total</th>
 </tr>
 <% @order_items.all.each do |item|%>
 <tr>
-    <td><%= item.menu_item_name%></td>
-    <td><%= item.menu_item_price%></td>
-    <td><%= item.quantity%></td>
-    <td><%= (item.menu_item_price).to_f*(item.quantity).to_f%></td>
+    <td class="Table-item"><%= item.menu_item_name%></td>
+    <td class="Table-item"><%= item.menu_item_price%></td>
+    <td class="Table-item"><%= item.quantity%></td>
+    <td class="Table-item"><%= (item.menu_item_price).to_f*(item.quantity).to_f%></td>
 </tr>
 <% end%>
 </table>
-<p>Order Total : <%= @total%></p>
+<p class="Hilight">Order Total : <%= @total%></p>
+</section>

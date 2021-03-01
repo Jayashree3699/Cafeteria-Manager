@@ -1,9 +1,22 @@
-<h1>Pending delivery</h1>
+<section>
+<h1 class="Content-heading">Pending delivery</h1>
+<table class="Main Shadow">
 <% @not_delivered.each do |order|%>
-    <li> <%= order[0]%> 
-        <%= form_with(url: "deliver_orders/#{order[2]}" , method: "patch") do %>
-            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-            <input type="submit" value="Delivered" onclick="this.form.submit()">
-        <% end %>
-    </li>
+    <tr> 
+        <td class="Table-item">
+            <%= order[2]%> 
+        </td>
+        <td class="Table-item">
+            <%= order[0]%> 
+        </td>
+
+        <td class="Table-item"> 
+            <%= form_with(url: "deliver_orders/#{order[2]}" , method: "patch") do %>
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                <input type="submit" value="Delivered" onclick="this.form.submit()">
+            <% end %>
+        <td>
+    </tr>
 <%end%>
+</table>
+</section>

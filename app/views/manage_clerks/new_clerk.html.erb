@@ -1,12 +1,13 @@
-<h1>Clerk Registration Form</h1>
-<section>
+
+<section class="Form-main">
+<h3 class="Hilight">Clerk Registration Form</h3>
 <%= form_with url: manage_clerks_path do |form|%>
-    <p>Name:</p>
+    <p class="Content-form">Name:</p>
     <%= form.text_field :name %>
-    <p>Email:</p>
+    <p class="Content-form">Email:</p>
     <%= form.email_field :email %>
-    <p>Password</p>
-    <%= form.password_field :password %><br>
+    <p class="Content-form">Password</p>
+    <%= form.password_field :password %><br><br>
     <%= form.submit "Add" %>
 
 <% end %>

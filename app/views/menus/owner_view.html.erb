@@ -1,5 +1,5 @@
-<section>
-    <h1>Create new menu<h1>
+<section class="Main-box Shadow">
+    <h1 class="Hilight">Create New Category<h1>
     <%= form_with(url: "/menus" , method: "post") do %> 
     <input type="text" value="Name" name="name">
     
@@ -7,31 +7,31 @@
     <% end %>
 </section>
 
-<section>
-    <h1>Available menus</h1>
+<section class="Main-box Shadow">
+    <h1 class="Hilight">Available Menu Categories</h1>
+    <table>
     <% Menu.all.each do |item|%>
-    <li>
-    <div class="Items-container">
-    <div class="Items-content"><%= form_with(url: "menus/#{item.id}/menu_items" , method: "get") do %>
-            <input type="submit" value="<%= item.name%>" onclick="this.form.submit()">
-    
-        <% end %>
-    </div>
-    <div class="Items-content">Enable Menu to Customers:
-        <%= form_with(url: "/menus/#{item.id}" , method: "put") do %>
+    <tr>
+    <div >
+    <td class="Table-item">
+        <%= link_to "#{item.name}" , menu_menu_items_path(:menu_id => item.id) ,:method => "get" %>
+    </td>
+    <td class="Table-item">Enable Menu to Customers:</td>
+        <td><%= form_with(url: "/menus/#{item.id}" , method: "put") do %>
             <input 
                 type="checkbox" 
                 name="enabled" <%= item.enabled ? "checked" : ""%>
                 onclick="this.form.submit()"
             />
         <% end %>
-    </div>
-    <div class="Items-content"><%= form_with(url: "menus/#{item.id}" , method: "delete") do %>
+    </td>
+    <td class="Table-item"><%= form_with(url: "menus/#{item.id}" , method: "delete") do %>
             <input type="submit" value="Delete" onclick="this.form.submit()">
     
         <% end %>
+    </td>
     </div>
-    </div>
-    </li>
+    </tr>
     <% end %>
+    </table>
 </section>

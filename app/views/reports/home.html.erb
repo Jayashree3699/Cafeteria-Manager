@@ -1,10 +1,11 @@
-<div>
+<section class="Form-main">
+    <h3 class="Hilight">Search Reports</h3>
     <%= form_with url: reports_path do |form|%>
-        <p>From Date:</p>
+        <p class="Content-form">From Date:</p>
         <%= form.date_field :from_date %>
-        <p>To Date:</p>
-        <%= form.date_field :to_date %><br>
+        <p class="Content-form">To Date:</p>
+        <%= form.date_field :to_date %><br><br>
         <%= form.submit "Search" %>
 
     <% end %>
-</div>
+</section>

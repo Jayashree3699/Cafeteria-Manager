@@ -1,10 +1,12 @@
+<section class="Main-box Shadow">
 <div>
-    <p><%= section_title%></p>
-    <div>
+    <p class="Hilight" ><%= section_title%></p>
+    <table>
     <% users.all.each do |user|%>
-        <li><%= user.name%>
-            <%= user.email%>
-        </li>
+        <tr><td class="Table-item"><%= user.name%></td>
+            <td class="Table-item"><%= user.email%></td>
+        </tr>
     <% end %>
-    </div>
+    </table>
 </div>
+</section>

@@ -1,5 +1,6 @@
-<h1>list of items</h1>
-<section>
+
+<section class="Main-box Shadow">
+    <h3 class="Hilight">Add New Item</h3>
     <%= form_with(url: "/menus/#{params[:menu_id]}/menu_items" , method: "post") do %> 
     <input type="text" value="Name" name="name">
     <input type="text" value="Description" name="description">
@@ -7,21 +8,26 @@
     <input type="submit" value="Add" onclick="this.form.submit()">
     <% end %>
 </section>
-<section>
+<section class="Main-box Shadow">
+<h3 class="Hilight">Available Items</h3>
+<table>
 <% MenuItem.where("menu_id = ?",params[:menu_id]).each do |item|%>
 
-    <li class="Items-container">
-    
-
-        <div class="Items-content"><%= item.name%></div>
-        <div class="Items-content"><%= item.price%></div>
-        <div class="Items-content"><%= item.description%></div>
-    <%= form_with(url: "/menus/#{item.menu_id}/menu_items/#{item.id}/edit" , method: "get") do %> 
-    <input type="submit" value="update" onclick="this.form.submit()">
-    <% end %>
-    <%= form_with(url: "/menus/#{item.menu_id}/menu_items/#{item.id}" , method: "delete") do %> 
-    <input type="submit" value="delete" onclick="this.form.submit()">
-    <% end %>
-    </li>    
+    <tr>
+        <td class="Table-item"><%= item.name%></td>
+        <td class="Table-item">Rs.<%= item.price%></td>
+        <td class="Table-item"><%= item.description%></td>
+        <td class="Table-item">
+            <%= form_with(url: "/menus/#{item.menu_id}/menu_items/#{item.id}/edit" , method: "get") do %> 
+                <input type="submit" value="update" onclick="this.form.submit()">
+            <% end %>
+        </td>
+         <td class="Table-item">
+            <%= form_with(url: "/menus/#{item.menu_id}/menu_items/#{item.id}" , method: "delete") do %> 
+                 <input type="submit" value="delete" onclick="this.form.submit()">
+            <% end %>
+        </td>
+    </tr>    
 <% end %>
+</table>
 </section>

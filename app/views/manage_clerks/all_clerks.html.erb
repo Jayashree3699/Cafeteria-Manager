@@ -1,11 +1,19 @@
+<section class="Main-box Shadow">
 <div>
-    <p>Current Clerks</p>
+    <p class="Hilight">Current Clerks</p>
+    <table>
+    <tr>
+    <th class="Table-item">Name</th>
+    <th class="Table-item">Email</th>
+    </tr>
     <% @clerks.all.each do |clerk|%>
-        <li>
-            <%= link_to "#{clerk.name}   #{clerk.email}" , edit_manage_clerk_path(:id => clerk.id) , :method => :get %>
-        </li>
+        <tr>
+            <td class="Table-item"><%= link_to "#{clerk.name}", edit_manage_clerk_path(:id => clerk.id) , :method => :get %></td>
+            <td class="Table-item"><%= clerk.email%></td>
+        </tr>
     <% end %>
+    </table>
 </div>
 <div>
-    <%= link_to "Add new clerk" , new_manage_clerk_path %>
+    <br><%= link_to "Add new clerk" , new_manage_clerk_path , :class => "Content-link"%>
 </div>

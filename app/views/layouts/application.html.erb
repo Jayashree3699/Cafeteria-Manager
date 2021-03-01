@@ -11,10 +11,15 @@
   </head>
 
   <body>
+  <div class="Welcome-bar">
     <% if @current_user %>
+      
       <p>welcome <%= @current_user.name%></p>
-      <%= link_to "Sign-out", destroy_session_path ,method:"delete"%>
+      <div class="Signout">
+      <p><%= link_to "Sign-out", destroy_session_path ,method:"delete" , :class => "link"%></p></div>
+      
     <% end %>
+    </div>
     <% if flash[:error]%>
     <p class="Flash-error"> <%= flash[:error]%> </p>
     <%end%> 

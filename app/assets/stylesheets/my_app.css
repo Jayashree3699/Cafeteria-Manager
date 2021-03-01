@@ -1,7 +1,18 @@
 body{
     font-family: sans-serif;
     
-    background-color: rgb(240, 227, 233);
+    background-color:#fff2df;
+}
+input[type=text]{
+    width:20%;
+    border:none;
+    padding: 10px 10px;
+    margin: 5px;
+}
+input[type=submit]{
+   background-color: #E7717D;
+   border-radius: 25px;
+    
 }
 .Flash-error{
     color:whitesmoke;
@@ -19,10 +30,23 @@ body{
     font-size: small;
     text-align: center;
 }
-.Main-box{
+.Shadow{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 10px;
+    background-color: rgb(250, 244, 247);
+    color:rgb(51, 54, 54);
+    list-style-type:none;
+}
+.Main-box.Shadow{
    
     margin: auto;
-    width: 50%;
+    width: 55%;
+    margin-top: 10px;
+    background-color:#fff3e3;
+}
+.Form-main{
+    margin: auto;
+    width: 25%;
     
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -33,16 +57,100 @@ body{
 }
 .Content-heading{
     text-align: center;
-    background-color: rgb(238, 138, 24);
+    background-color: #ee6002;
+    color: white;
 }
 .Content{
     text-align: center;
 }
+.Content-form{
+    text-align: left;
+}
 .Content-link{
     text-align: center;
-    background-color: rgb(58, 192, 4);
-    color: rgb(238, 221, 221);
-    margin: auto;
+    background-color: #ff9e22;
+    color: rgb(255, 255, 255);
+    
     width:200px;
+    padding: 5px;
+    margin-top:10px;
+}
+.Content-button{
+    text-align: center;
+    
+    color: rgb(255, 255, 255);
+    margin: auto;
+    width:100px;
     border-radius: 25px;
+}
+.Menu-page{
+    display: flex;
+}
+.Menu-section{
+    margin: auto;
+    width: 60%;
+    
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 10px;
+    background-color: rgb(250, 244, 247);
+    color:rgb(51, 54, 54);
+    
+    list-style-type:none;
+}
+.Cart-section{
+    margin: auto;
+    width: 30%;
+    
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 10px;
+    background-color: rgb(250, 244, 247);
+    color:rgb(51, 54, 54);
+    
+    list-style-type:none;
+}
+.Cart-content{
+    display: flex;
+}
+.Cart-item{
+    padding: 10px 10px;
+    margin: 5px;
+}
+.Table-item{
+    padding: 10px 10px;
+    margin: 5px;
+}
+.Hilight{
+    padding:5px;
+    padding-left: 10px;
+    background-color:#ff9e22 ;
+    color: rgb(255, 253, 253);
+    text-shadow: rgb(20, 20, 20);
+}
+.Welcome-bar{
+    background-color:#b1006a;
+    display: flex;
+    color: white;
+    padding-left: 20px;
+}
+.Signout{
+    
+    margin-left: auto;
+    padding-right: 20px;
+}
+.link{
+    color: white;
+}
+.Order.Shadow{
+    margin: auto;
+    width: 50%;
+    margin-top: 50px;
+}
+.Option.Shadow{
+    width: 100px;
+
+    border-radius: 5px;
+    margin-left: 50px;
+    
 }

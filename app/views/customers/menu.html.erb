@@ -1,16 +1,17 @@
 <%= javascript_pack_tag 'my_function' %>
-<div class="Items-main">
+<div class="Menu-page">
 
 <% @current_cart %>
-<section>
-<h1>Customer view - Available menus</h1>
+<section class="Menu-section">
+<h1 class="Content-heading">Today's Menu</h1>
 <% @items.each do |item|%>
 
-    <li class="Items-container">
+    <li>
     <%= form_with(url: "/carts/#{@current_cart.id}/cart_items" , method: "post") do %> 
-    <div class="Items-content">
+    <div>
          
         <input type="text" name="menu_item_name" value="<%= item.name%>" readonly>
+        <input type="text" name="menu_item_" value="<%= item.description%>" readonly>
         <input type="text" name="menu_item_price" value="<%= item.price%>" readonly>
         <input type="hidden" name="menu_id" value="<%= item.menu_id%>">
         <input type="hidden" name="menu_item_id" value="<%= item.id%>">
@@ -21,24 +22,26 @@
     </li>    
 <% end %>
 </section>
-<section class="Cart-main">
-    <h1>Cart Items</h1>
+<section class="Cart-section">
+    <h1 class="Content-heading">Cart Items</h1>
+    <table>
     <% @current_cart_items.each do |cart_item| %>
-    <li class="Items-container">
-    <div class="Items-content">
-       <%= cart_item.menu_item_name%>
-       <%= (cart_item.menu_item_price)*cart_item.menu_item_quantity%>
-    <%= form_with(url: "/carts/#{@current_cart.id}/cart_items/#{cart_item.id}" , method: "patch") do %>  
+    <tr>
+    <div>
+    <td class="Cart-item">  <%= cart_item.menu_item_name%></td>
+    <td class="Cart-item">   Rs.<%= (cart_item.menu_item_price)*cart_item.menu_item_quantity%></td>
+    <td><%= form_with(url: "/carts/#{@current_cart.id}/cart_items/#{cart_item.id}" , method: "patch") do %>  
         <input type="submit" value="+" name="change" onclick="this.form.submit()">
-    <% end %>  
-    <%= cart_item.menu_item_quantity%>
-    <%= form_with(url: "/carts/#{@current_cart.id}/cart_items/#{cart_item.id}" , method: "patch") do %>  
+    <% end %> </td>
+    <td><%= cart_item.menu_item_quantity%></td>
+    <td><%= form_with(url: "/carts/#{@current_cart.id}/cart_items/#{cart_item.id}" , method: "patch") do %>  
         <input type="submit" value="-" name="change" onclick="this.form.submit()">
-    <% end %> 
+    <% end %> </td>
     </div>
-    </li>
+    </tr>
     <% end %>
-    Cart Total = <%= @total%><br>
+    </table>
+    <p class="Hilight">Cart Total = Rs.<%= @total%></p>
     <%= button_to "Place Order", place_orders_path ,  :controller=>"place_orders", :method => "get" %>
    
 </section>

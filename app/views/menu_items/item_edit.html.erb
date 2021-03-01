@@ -1,5 +1,6 @@
-<h3>Edit Items</h3>
-<section>
+<section class="Main-box Shadow">
+<h3 class="Hilight">Edit Items</h3>
+
 <%= form_with(url: "/menus/#{params[:menu_id]}/menu_items/#{params[:id]}" , method: "put") do %> 
     <% item = MenuItem.find_by(id: params[:id])%>
     <input type="text" value="<%= item.name%>" name="name">

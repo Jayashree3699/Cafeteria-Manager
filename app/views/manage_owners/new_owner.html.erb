@@ -1,11 +1,12 @@
-<h1>Owner Registration Form</h1>
-<section>
+
+<section class="Form-main">
+<h3 class="Hilight">Owner Registration Form</h3>
 <%= form_with url: manage_owners_path do |form|%>
-    <p>Name:</p>
+    <p class="Content-form">Name:</p>
     <%= form.text_field :name %>
-    <p>Email:</p>
+    <p class="Content-form">Email:</p>
     <%= form.email_field :email %>
-    <p>Password</p>
+    <p class="Content-form">Password</p>
     <%= form.password_field :password %><br>
     <%= form.submit "Add" %>
 

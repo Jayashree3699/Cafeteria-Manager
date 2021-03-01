@@ -1,6 +1,8 @@
-<div>
-    <div><%= link_to "Manage Menu ", menus_path %> </div>
-    <div>Reports </div>
-    <div><%= link_to "Manage All Users" , manage_all_users_url%></div>
-    <div><%= link_to "Deliver Orders", deliver_orders_path %></div>
-</div>
+<section>
+    <h1 class="Content-heading">Cafeteria</h1>
+    <%= link_to "Manage Menu ", menus_path ,:class => "Option Shadow" %> 
+     
+    <%= link_to "Reports", reports_path ,:class => "Option Shadow" %> 
+    <%= link_to "Manage All Users" , manage_all_users_url, :class => "Option Shadow"%>
+    <%= link_to "Deliver Orders", deliver_orders_path , :class => "Option Shadow"%>
+</section>

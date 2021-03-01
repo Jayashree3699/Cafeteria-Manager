@@ -1,17 +1,19 @@
+<section class="Main-box Shadow">
 <table>
   <tr>
-    <th>Order ID</th>
-    <th>Date</th>
-    <th>Name</th>
-    <th>Email</th>
+    <th class="Hilight">Order ID</th>
+    <th class="Hilight">Date</th>
+    <th class="Hilight">Name</th>
+    <th class="Hilight">Email</th>
   </tr>
 <% @orders_placed.each do |order|%>
   <tr>
-    <td><%= link_to "#{order[0]}" , report_path( :id => "#{order[0]}") , :method => :get %></td>
-    <td><%= order[1]%></td>
-    <td><%= order[2]%></td>
-    <td><%= order[3]%></td>
+    <td class="Table-item"><%= link_to "#{order[0]}" , report_path( :id => "#{order[0]}") , :method => :get %></td>
+    <td class="Table-item"><%= order[1]%></td>
+    <td class="Table-item"><%= order[2]%></td>
+    <td class="Table-item"><%= order[3]%></td>
   </tr>
   <tr>
 <% end %>
 </table>
+</section>

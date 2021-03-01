@@ -21,8 +21,8 @@ class PlaceOrdersController < ApplicationController
             )
             cart_item.destroy
         end 
-        
-        render "order_placed"
+        flash[:success] = "Order Placed Successfully"
+        redirect_to customers_path
     end  
 
     def destroy

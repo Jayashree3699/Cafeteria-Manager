@@ -1,11 +1,17 @@
-<div>
-    <p>Current Owners</p>
+<section class="Main-box Shadow">
+    <h3 class="Hilight">Current Owners</h3>
+    <table>
+     <tr>
+    <th class="Table-item">Name</th>
+    <th class="Table-item">Email</th>
+    </tr>
     <% @owners.all.each do |owner|%>
-        <li>
-            <%= link_to "#{owner.name}   #{owner.email}" , edit_manage_owner_path(:id => owner.id) , :method => :get %>
-        </li>
-    <% end %>
-</div>
-<div>
-    <%= link_to "Add new owner" , new_manage_owner_path %>
-</div>
+        <tr>
+            <td class="Table-item"><%= link_to "#{owner.name}" , edit_manage_owner_path(:id => owner.id) , :method => :get %></td>
+            <td class="Table-item"><%= owner.email%></td>
+        </tr>
+     <% end %>
+    </table>
+    
+    <br><%= link_to "Add new owner" , new_manage_owner_path , :class => "Content-link"%>
+</section>
