@@ -52,6 +52,6 @@ class ApplicationController < ActionController::Base
     def ensure_is_clerk
         unless @current_user.role == "clerk"
             redirect_to "/"
-        end    
+        end  
     end  
 end

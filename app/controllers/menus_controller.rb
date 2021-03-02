@@ -1,32 +1,48 @@
 class MenusController < ApplicationController 
     before_action :ensure_is_owner
     def index
-        
-            render "owner_view"
-           
-           
-    end    
-    def create
-        menu = Menu.create!(name: params[:name],enabled: false)
+        @menus = Menu.all
+        render "owner_view"
+    end   
 
+    def create
+        name = params[:name]
+        if (name.downcase!="name") && !Menu.name_exists?(name)
+            menu = Menu.new(name: params[:name],enabled: false)
+            if !menu.save
+                flash[:error] = menu.errors.full_messages.join(", ")
+                redirect_to menus_path and return
+            end
+        else  
+            flash[:error] = "Name Already Exists Or Invalid"
+            redirect_to menus_path and return
+        end      
         redirect_to "/menus/#{menu.id}/menu_items"
-         
     end    
     def destroy
         id = params[:id]
-        menu = Menu.find(id)
-        MenuItem.where("menu_id = ?",id).each do |item|
-            item.destroy
-        end    
-        menu.destroy
+        if Menu.destroyed?(id)
+            flash[:success] = "Menu Category Deleted"
+        else  
+            flash[:error] = "Error Occured. Try Again" 
+        end     
+       # menu = Menu.find(id)
+       # MenuItem.where("menu_id = ?",id).each do |item|
+       #     item.destroy
+       # end    
+       # menu.destroy
         redirect_to menus_path
     end 
     def update
         id = params[:id]
         enabled = params[:enabled]
-        menu = Menu.find(id)
-        menu.enabled = enabled
-        menu.save
+        if Menu.exists?(id)
+            menu = Menu.find(id)
+            menu.enabled = enabled
+            menu.save
+        else    
+            flash[:error] = "Error Occured. Try Again"
+        end    
         redirect_to menus_path
     end       
 

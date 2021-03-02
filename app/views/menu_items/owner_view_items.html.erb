@@ -1,7 +1,7 @@
 
 <section class="Main-box Shadow">
     <h3 class="Hilight">Add New Item</h3>
-    <%= form_with(url: "/menus/#{params[:menu_id]}/menu_items" , method: "post") do %> 
+    <%= form_with(url: "/menus/#{@id}/menu_items" , method: "post") do %> 
     <input type="text" value="Name" name="name">
     <input type="text" value="Description" name="description">
     <label>Price</label><input type="number" value="Price" name="price" min="1" >
@@ -11,7 +11,7 @@
 <section class="Main-box Shadow">
 <h3 class="Hilight">Available Items</h3>
 <table>
-<% MenuItem.where("menu_id = ?",params[:menu_id]).each do |item|%>
+<% @menu_items.each do |item|%>
 
     <tr>
         <td class="Table-item"><%= item.name%></td>

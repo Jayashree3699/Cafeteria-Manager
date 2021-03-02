@@ -27,5 +27,21 @@ class CartItem < ApplicationRecord
     def self.cart_checked(cart_id, current_cart_id)
         current_cart_id.to_i == cart_id.to_i
     end
-    
+
+    def self.make_order(order_id , current_cart)
+        CartItem.current_cart_items(current_cart).each do |cart_item|
+            order_item = OrderItem.new(
+                order_id: order_id,
+                menu_item_id: cart_item.menu_item_id,
+                menu_item_name: cart_item.menu_item_name,
+                menu_item_price: cart_item.menu_item_price,
+                quantity: cart_item.menu_item_quantity
+            )
+            if !order_item.save
+                return false
+            end    
+            cart_item.destroy
+        end 
+        return true
+    end    
 end    

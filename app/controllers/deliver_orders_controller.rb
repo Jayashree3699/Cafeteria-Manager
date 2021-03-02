@@ -11,6 +11,7 @@ class DeliverOrdersController < ApplicationController
     def update
         id = params[:id]
         order = Order.find_by(id: id)
+        order.delivered_on = Date.today
         order.order_delivered = true
         order.save
         redirect_to deliver_orders_path

@@ -1,8 +1,9 @@
 <section>
-    <%= form_with(url: "/menus/#{params[:menu_id]}/menu_items" , method: "post") do %> 
+    <%= form_with(url: "/menus/#{@id}/menu_items" , method: "post") do %> 
     <input type="text" value="Name" name="name">
     <input type="text" value="Description" name="description">
     <label>Price</label><input type="number" value="Price" name="price" min="1" >
     <input type="submit" value="Add" onclick="this.form.submit()">
     <% end %>
 </section>
+

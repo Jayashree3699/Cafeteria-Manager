@@ -10,6 +10,7 @@ class OwnerSessionController < ApplicationController
             session[:current_user_id] = user.id
             redirect_to owner_path
         else
+            flash[:error] = "Invalid Credentials. Please Try Again"
             redirect_to new_owner_session_path
         end    
     end  
