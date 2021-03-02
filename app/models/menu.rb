@@ -4,7 +4,7 @@ class Menu < ApplicationRecord
     def self.enabled_menu_items
         enabled_menus = all.where(enabled: true)
         available_menu_items = Array.new
-        enabled_menus.all.each do |menu|
+        enabled_menus.all.each do |menu|    
             MenuItem.of_menu(menu.id).each do |item|
                 available_menu_items.push(item)
             end    

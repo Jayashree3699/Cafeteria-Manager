@@ -1,11 +1,11 @@
 <section class="Main-box Shadow">
 <h3 class="Hilight">Edit Items</h3>
 
-<%= form_with(url: "/menus/#{params[:menu_id]}/menu_items/#{params[:id]}" , method: "put") do %> 
-    <% item = MenuItem.find_by(id: params[:id])%>
-    <input type="text" value="<%= item.name%>" name="name">
-    <input type="text" value="<%= item.description%>" name="description">
-    <input type="number" value="<%= item.price%>" name="price" >
+<%= form_with(url: "/menus/#{@menu_id}/menu_items/#{@id}" , method: "put") do %> 
+    
+    <input type="text" value="<%= @item.name%>" name="name">
+    <input type="text" value="<%= @item.description%>" name="description">
+    <input type="number" value="<%= @item.price%>" name="price" >
     <input type="submit" value="update" onclick="this.form.submit()">
     
 <% end %>

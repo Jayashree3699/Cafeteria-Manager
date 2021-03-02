@@ -15,4 +15,8 @@ class Order < ApplicationRecord
     def self.is_valid_range(from_date , to_date)
        (Date.parse(to_date) >= Date.parse(from_date)) && (Date.parse(to_date) <= Date.today)
     end    
+    def self.not_delivered_orders
+        all.where("order_delivered = ?",false)
+    end    
+
 end

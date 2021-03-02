@@ -8,12 +8,18 @@ class DeliverOrdersController < ApplicationController
         render "pending_delivery"
     end    
     
-    def update
+    def update      
         id = params[:id]
-        order = Order.find_by(id: id)
-        order.delivered_on = Date.today
-        order.order_delivered = true
-        order.save
+        if Order.not_delivered_orders.find(id)
+            order = Order.find_by(id: id)
+            order.delivered_on = Date.today
+            order.order_delivered = true
+            if order.save
+                flash[:success] = "Updated Successfully"
+            end    
+        else  
+            flash[:error] = "Invalid"
+        end        
         redirect_to deliver_orders_path
     end    
 end    

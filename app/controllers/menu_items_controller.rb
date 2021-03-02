@@ -40,9 +40,10 @@ class MenuItemsController < ApplicationController
     end   
     
     def edit
-        menu_id = params[:menu_id]
-        id = params[:id]
-        if MenuItem.of_menu(menu_id).exists?(id)
+        @menu_id = params[:menu_id]
+        @id = params[:id]
+        if MenuItem.of_menu(@menu_id).exists?(@id)
+            @item = MenuItem.find_by(id: @id)
             render "item_edit"
         else  
             redirect_to menus_path
@@ -72,9 +73,15 @@ class MenuItemsController < ApplicationController
         redirect_to menu_menu_items_path
     end  
     def destroy
-        id = params[:id]
-        item = MenuItem.find(id)
-        item.destroy
+
+        @menu_id = params[:menu_id]
+        @id = params[:id]
+        if MenuItem.of_menu(@menu_id).exists?(@id)
+            item = MenuItem.find_by(id: @id)
+            item.destroy
+        else  
+            flash[:error] = "Invalid"
+        end     
         redirect_to menu_menu_items_path
     end      
 end    

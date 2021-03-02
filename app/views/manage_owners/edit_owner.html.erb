@@ -1,7 +1,7 @@
 
 <section class="Main-box Shadow"> 
 <h3 class="Hilight">Edit Owner</h3>
-<%= form_with(url: "/manage_owners/#{@owner.id}"  , method: "put") do %> 
+<%= form_with(url: "/manage_owners/#{@owner.id}"  , method: "patch") do %> 
    
     <input type="text" value="<%= @owner.name%>" name="name">
     <input type="text" value="<%= @owner.email%>" name="email">

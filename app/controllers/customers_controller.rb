@@ -11,7 +11,7 @@ class CustomersController < ApplicationController
         #@total = 0
         #CartItem.where(cart_id: @current_cart.id).each do |cart_item|
         #    @total = @total + (cart_item.menu_item_quantity * cart_item.menu_item_price)
-        #end   
+        #end 
         @items = Menu.enabled_menu_items 
         @total = CartItem.cart_total(current_cart)
         @current_cart_items = CartItem.current_cart_items(current_cart) 
