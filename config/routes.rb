@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   resources :users
   resources :deliver_orders
   resources :reports
+  resources :orders
+  
   resources :menus do
     resources :menu_items
   end  

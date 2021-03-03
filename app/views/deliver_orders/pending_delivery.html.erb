@@ -1,15 +1,27 @@
-<section>
+<section class="Main-box Shadow">
 <h1 class="Content-heading">Pending delivery</h1>
-<table class="Main Shadow">
+<table>
+<tr>
+    <th class="Table-item">Order ID</th>
+    <th class="Table-item">Order Date</th>
+    <th class="Table-item">Ordered By</th>
+    <th class="Table-item">Email</th>
+    <th></th>
+<tr>
 <% @not_delivered.each do |order|%>
     <tr> 
         <td class="Table-item">
             <%= order[2]%> 
-        </td>
+        </td>  
+        <td class="Table-item">
+            <%= order[3]%> 
+        </td>   
         <td class="Table-item">
             <%= order[0]%> 
         </td>
-
+        <td class="Table-item">
+            <%= order[1]%> 
+        </td> 
         <td class="Table-item"> 
             <%= form_with(url: "deliver_orders/#{order[2]}" , method: "patch") do %>
                 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>

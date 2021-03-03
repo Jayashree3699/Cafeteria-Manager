@@ -8,7 +8,7 @@ class Menu < ApplicationRecord
             MenuItem.of_menu(menu.id).each do |item|
                 available_menu_items.push(item)
             end    
-        end 
+        end   
         available_menu_items   
     end  
 

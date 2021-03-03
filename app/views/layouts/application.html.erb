@@ -13,8 +13,11 @@
   <body>
   <div class="Welcome-bar">
     <% if @current_user %>
-      
+      <% if @current_user.role == "customer" or @current_user.role == "owner"%>
       <p>welcome <%= @current_user.name%></p>
+      <% else %>
+      <p>welcome WALK IN CUSTOMER</p>
+      <% end %>
       <div class="Signout">
       <p><%= link_to "Sign-out", destroy_session_path ,method:"delete" , :class => "link"%></p></div>
       

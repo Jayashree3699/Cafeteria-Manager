@@ -1,0 +1,17 @@
+<section class="Main-box Shadow"> 
+<h3 class="Hilight">Your Orders</h3>
+<table>
+<tr>
+    <th class="Table-item">Order ID</th>
+    <th class="Table-item">Order Date</th>
+    <th class="Table-item">Delivery Date</th>
+</tr>
+<% @current_user_orders.each do |order| %>
+    <tr>
+        <td class="Table-item"><%= order.id%></td>
+        <td class="Table-item"><%= order.date%></td>
+        <td class="Table-item"><%= order.delivered_on%></td>
+    </tr>
+<%end %>    
+</table>
+</section>

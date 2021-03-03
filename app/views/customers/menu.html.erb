@@ -4,6 +4,9 @@
 <% @current_cart %>
 <section class="Menu-section">
 <h1 class="Content-heading">Today's Menu</h1>
+
+<%= link_to "Show Orders" , orders_path , :method => :get , :class => "Content-link"%>
+
 <% @items.each do |item|%>
 
     <li>

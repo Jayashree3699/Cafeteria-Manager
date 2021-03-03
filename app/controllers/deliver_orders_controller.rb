@@ -7,7 +7,7 @@ class DeliverOrdersController < ApplicationController
         @not_delivered = Order.not_delivered #.collect{|n| [n.user_name , n.user_email , n.order_id]}
         render "pending_delivery"
     end    
-    
+        
     def update      
         id = params[:id]
         if Order.not_delivered_orders.find(id)

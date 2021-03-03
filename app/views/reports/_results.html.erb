@@ -1,13 +1,13 @@
-<!--<section class="Main-box Shadow">
 <table>
+<h3><%= section_title%><h3>
   <tr>
     <th class="Hilight">Order ID</th>
     <th class="Hilight">Date</th>
     <th class="Hilight">Name</th>
     <th class="Hilight">Email</th>
   </tr>
-<% @orders_placed.each do |order|%>
-  <tr>
+<% users.each do |order|%>
+  <tr>     
     <td class="Table-item"><%= link_to "#{order[0]}" , report_path( :id => "#{order[0]}") , :method => :get %></td>
     <td class="Table-item"><%= order[1]%></td>
     <td class="Table-item"><%= order[2]%></td>
@@ -16,9 +16,4 @@
   <tr>
 <% end %>
 </table>
-</section> -->
-
-<div>
-    <%= render partial: "results", locals: {section_title: "Customers", users: @customers}%>
-    <%= render partial: "results", locals: {section_title: "WALK IN CUSTOMERS", users: @walk_in_customers}%>
-</div>    
+</section>

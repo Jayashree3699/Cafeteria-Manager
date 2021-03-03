@@ -8,5 +8,9 @@ class MenuItem < ApplicationRecord
 
     def self.of_menu(menu_id)
         all.where("menu_id = ?",menu_id)
+    end  
+
+    def self.menu_item_details(menu_id , menu_item_id)
+        MenuItem.of_menu(menu_id).find(menu_item_id)
     end    
-end 
+end    

@@ -10,10 +10,12 @@ class ReportsController < ApplicationController
         to_date = params[:to_date]
         if Order.is_valid_range(from_date , to_date)
             @orders_placed = Order.search_between_dates(from_date , to_date)
+            @customers = Order.are_customers(@orders_placed)
+            @walk_in_customers = Order.are_walk_in_customers(@orders_placed)
             render "search_result"
         else  
             flash[:error] = "Date Invalid"
-            render "home"
+            render "home"    
         end      
     end  
     def show
