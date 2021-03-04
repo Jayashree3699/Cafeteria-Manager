@@ -26,11 +26,6 @@ class MenusController < ApplicationController
         else  
             flash[:error] = "Error Occured. Try Again" 
         end     
-       # menu = Menu.find(id)
-       # MenuItem.where("menu_id = ?",id).each do |item|
-       #     item.destroy
-       # end    
-       # menu.destroy
         redirect_to menus_path
     end 
     def update

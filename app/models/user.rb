@@ -17,6 +17,9 @@ class User < ApplicationRecord
     def self.customers
         User.where(role: "customer")
     end 
-    
+     
+    def self.user_exists?(email)
+        all.where("lower(email) = ?", email.downcase).exists?
+    end    
    
 end    
